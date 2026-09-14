@@ -1,0 +1,3 @@
+In this Module , we will be working on with proper authentication management . 
+we will try with different commonly used frameworks and languages . Mainly Javascript , TypeScript and Python . 
+Lets grind it ! 
