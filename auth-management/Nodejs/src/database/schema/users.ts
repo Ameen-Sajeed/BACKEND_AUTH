@@ -8,15 +8,11 @@ import {
   
   export const users = pgTable("users", {
     id: uuid("id").defaultRandom().primaryKey(),
-  
     email: varchar("email", { length: 255 }).notNull().unique(),
-  
-    passwordHash: text("password_hash").notNull(),
-  
+    passwordHash: text("password_hash").notNull(),  
     status: varchar("status", { length: 20 })
       .notNull()
       .default("ACTIVE"),
-  
     createdAt: timestamp("created_at", {
       withTimezone: true
     })
