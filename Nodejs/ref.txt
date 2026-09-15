@@ -1,0 +1,3 @@
+I designed an authentication service using a modular architecture, separating HTTP handling, business logic, and persistence. 
+PostgreSQL handles users and sessions, with short-lived access tokens and rotating refresh tokens. 
+The same domain design is later implemented in NestJS and FastAPI.
