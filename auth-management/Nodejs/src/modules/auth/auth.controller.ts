@@ -1,5 +1,6 @@
 import { FastifyRequest } from "fastify";
 import { AuthService } from "./auth.service.js";
+import { registerSchema } from "./auth.schema.js";
 
 export class AuthController {
   constructor(
@@ -7,18 +8,13 @@ export class AuthController {
   ) {}
 
   async register(
-    request: FastifyRequest<{
-      Body: {
-        email: string;
-        password: string;
-      };
-    }>
+    request: FastifyRequest
   ) {
-    const { email, password } = request.body;
+    const data = registerSchema.parse(request.body);
 
     return this.authService.register(
-      email,
-      password
+      data.email,
+      data.password
     );
   }
 }
