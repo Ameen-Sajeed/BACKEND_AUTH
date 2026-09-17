@@ -22,4 +22,19 @@ export class UserRepository {
 
     return result[0] ?? null;
   }
+
+  async createUser(data: {
+    email: string;
+    passwordHash: string;
+  }) {
+    const result = await db
+      .insert(users)
+      .values({
+        email: data.email,
+        passwordHash: data.passwordHash
+      })
+      .returning();
+  
+    return result[0];
+  }
 }

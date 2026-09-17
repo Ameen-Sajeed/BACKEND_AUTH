@@ -1,6 +1,7 @@
 import Fastify from "fastify";
 import { db } from "./database/client.js";
 import { userRoutes } from "./modules/users/user.routes.js";
+import { authRoutes } from "./modules/auth/auth.routes.js";
 export function buildApp() {
   const app = Fastify({
     logger: true
@@ -16,6 +17,7 @@ export function buildApp() {
   });
 
   app.register(userRoutes);
+  app.register(authRoutes)
 
   return app;
 }
